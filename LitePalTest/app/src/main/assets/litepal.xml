@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <dbname value="BookStore" ></dbname>
+
+    <version value="2" ></version>
+
+    <list>
+        <mapping class="cn.shui.litepaltest.Book"></mapping>
+        <mapping class="cn.shui.litepaltest.Category"></mapping>
+    </list>
+</litepal>

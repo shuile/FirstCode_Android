@@ -1,0 +1,75 @@
+第一章：
+	Android系统架构：
+		1、Linux内核层
+			该层为设备提供了底层的驱动。
+		2、系统运行库层、Android运行时库
+			通过C/C++库来为Android系统提供了主要的特性支持。
+			Android运行时库提供了一些核心库，能够允许开发者使用Java语言来编写Android应用；还包含了Dalvik虚拟机，它是的每一个Android应用都运行在独立的进程当中，并且拥有一个自己的Dalvik虚拟机实例。
+		3、应用框架层
+			提供了构建应用程序可能用到的各种API。
+		4、应用层
+			所有安装在手机上的应用程序都属于该层。
+	Android应用开发特色
+		1、四大组件
+			Activity、Broadcast Receiver、Content Provider、Service
+		2、丰富的系统控件
+		3、SQLite数据库
+		4、强大的多媒体
+		5、地理位置定位
+	Android目录结构
+		1、.gradle和.idea
+			放置AS自动生成的一些文件。
+		2、app
+			项目中的代码、资源放置的目录。
+		3、build
+			主要包含一些在编译时自动生成的文件
+		4、gradle
+			包含了gradle wrapper的配置文件，使用gradle wrapper的方式不需要提前将gradle下载好，而是会自动根据本地的缓存情况决定是否需要联网下载gradle。
+			配置路径：File->Settings->Build,Execution,Deployment->Gradle，进行配置更改。
+		5、.gitignore
+			用来将制定的目录或文件排除在版本控制之外的文件。
+		6、build.gradle
+			项目全局的gradle构建脚本，通常这个文件中的内容是不需要修改的。
+		7、gradle.properties
+			项目全局的gradle配置文件，在这里配置的属性将会影响到项目中所有的gradle编译脚本。
+		8、gradlew和gradlew.bat
+			用来在命令行界面中执行gradle命令的，其中gradlew是在Linux或Mac系统中使用的，gradlew.bat是在Windows系统中使用的。
+		9、Xxx.iml
+			iml文件是所有IntelliJ IDEA项目都会自动生成的一个文件，用于标识这是一个IntelliJ IDEA项目。
+		10、local.properties
+			这个文件用于指定本集中的Android SDK路径，通常内容都是自动生成的，不需要修改。
+		11、settings.gradle
+			这个文件用于指定项目中所有引入的模块。
+	app目录结构
+		1、build
+			包含了一些在编译时自动生成的文件
+		2、libs
+			项目中使用到了第三方jar包，就需要把这些jar包都放在libs目录下，放在这个目录下的jar包都会被自动添加到构建路径里去。
+		3、androidTest
+			用来编写AndroidTest测试用例的，可以对项目进行一些自动化测试。
+		4、java
+			放置我们所有Java代码的地方。
+		5、res
+			项目中使用到的所有图片、布局、字符串资源都要存放在这个目录下。
+		6、AndroidManifest.xml
+			整个Android项目的配置文件。
+		7、test
+			用来编写Unit Test测试用例的
+		8、.gitignore
+			用于将app模块内的指定的目录或文件排除在版本控制之外，作用和外层的.gitignore文件类似
+		9、app.iml
+			IntelliJ IDEA项目自动生成的的文件
+		10、build.gradle
+			app模块的gradle构建脚本。这个文件中会指定很多项目构建相关的配置。
+		11、proguard-rules.pro
+			这个文件用于指定项目代码的混淆规则，当代码开发完成后打成安装包文件，如果不希望代码被别人破解，通常会将代码进行混淆。
+第二章
+	疑问：
+		1、ThirdActivity注册文件中添加intent-filter未能实现选择器弹窗？
+	活动状态：
+		运行状态、暂停状态、停止状态、销毁状态
+	启动模式：
+		standard(默认模式):每次启动都会创建一个实例
+		singleTop:不会重复创建位于栈顶的实例
+		singleTask:会重新获取栈中已存在的实例进行复用，并将其上方的实例全都出栈
+		singleInstance:指明了该模式的实例会单独存放在一个栈中
